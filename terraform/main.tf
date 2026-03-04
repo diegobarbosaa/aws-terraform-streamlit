@@ -3,10 +3,10 @@ module "ec2" {
   source = "./modules/ec2"
 
   instance_name      = "terraform-streamlit-ec2-ubuntu"
-  instance_type      = "t2.micro"
+  instance_type      = "t3.micro"
   enable_ssm         = true
   enable_streamlit   = true
-  
+
   # Git Clone (deixe vazio para usar scripts inline)
   git_repository_url = "https://github.com/diegobarbosaa/aws-terraform-streamlit.git"
   git_branch         = "main"
