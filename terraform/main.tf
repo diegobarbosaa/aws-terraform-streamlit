@@ -8,7 +8,7 @@ module "ec2" {
   enable_streamlit   = true
   
   # Git Clone (deixe vazio para usar scripts inline)
-  git_repository_url = "https://github.com/SEU-USUARIO/SEU-REPO.git"
+  git_repository_url = "https://github.com/diegobarbosaa/aws-terraform-streamlit.git"
   git_branch         = "main"
 
   tags = {

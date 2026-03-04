@@ -47,9 +47,18 @@ locals {
               sh get-docker.sh
               apt-get install -y git
 
-              # Clona o repositório
-              git clone -b ${var.git_branch} ${var.git_repository_url} /app/streamlit
+              # Cria diretório final do app
+              mkdir -p /app/streamlit
               cd /app/streamlit
+
+              # Clona o repositório em pasta temporária
+              git clone -b ${var.git_branch} ${var.git_repository_url} /tmp/repo-temp
+
+              # Copia apenas o conteúdo da pasta app/ para o diretório final
+              cp -r /tmp/repo-temp/app/* .
+
+              # Limpa pasta temporária
+              rm -rf /tmp/repo-temp
 
               # Build da imagem Docker
               docker build -t streamlit-app .
